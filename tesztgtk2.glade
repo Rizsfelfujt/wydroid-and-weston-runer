@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.40.0 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkDialog" id="popup">
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Info</property>
+    <property name="type-hint">dialog</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="poup">
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can-focus">False</property>
+            <property name="layout-style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-bottom">6</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="width-request">158</property>
+                <property name="height-request">48</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="margin-left">10</property>
+                <property name="margin-right">10</property>
+                <property name="margin-top">6</property>
+                <property name="margin-bottom">6</property>
+                <property name="label" translatable="yes">jokkogery@gmail.com
+csovesszag96@gmail.com
+by Rizsfelfujt 2026 v1.0</property>
+              </object>
+              <packing>
+                <property name="x">3</property>
+                <property name="y">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="window1">
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Run Compositor</property>
+    <property name="resizable">False</property>
+    <property name="window-position">center</property>
+    <property name="default-width">350</property>
+    <property name="default-height">200</property>
+    <property name="icon-name">teszt</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkButton" id="button1">
+            <property name="label" translatable="yes">Start weston</property>
+            <property name="width-request">281</property>
+            <property name="height-request">34</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="margin-bottom">11</property>
+            <signal name="clicked" handler="on_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">78</property>
+            <property name="y">172</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width-request">100</property>
+            <property name="height-request">22</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-right">49</property>
+            <property name="label" translatable="yes">width: </property>
+          </object>
+          <packing>
+            <property name="x">7</property>
+            <property name="y">37</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width-request">100</property>
+            <property name="height-request">26</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">height: </property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">65</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="width">
+            <property name="width-request">20</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="x">89</property>
+            <property name="y">38</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="height">
+            <property name="width-request">20</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="x">88</property>
+            <property name="y">69</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="error">
+            <property name="width-request">275</property>
+            <property name="height-request">22</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-bottom">5</property>
+            <property name="justify">center</property>
+          </object>
+          <packing>
+            <property name="x">82</property>
+            <property name="y">215</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="infok">
+            <property name="label" translatable="yes">info</property>
+            <property name="width-request">35</property>
+            <property name="height-request">34</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="margin-right">10</property>
+            <signal name="clicked" handler="on_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">361</property>
+            <property name="y">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFileChooserButton" id="ApkOpen">
+            <property name="width-request">213</property>
+            <property name="height-request">34</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="title" translatable="yes"/>
+          </object>
+          <packing>
+            <property name="x">78</property>
+            <property name="y">127</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="Apkinstall">
+            <property name="label" translatable="yes">Install</property>
+            <property name="width-request">66</property>
+            <property name="height-request">34</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">291</property>
+            <property name="y">128</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=RunCompositor
+Encoding=UTF-8
+Exec=/home/nebook/Application/compositor_runer/run_program.sh
+Icon=/usr/share/icons/droidcom.svg
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=Weston Compositor uner;
+Comment[hu]=Android emulator.
+Name[hu]=Run Weston Compositor
