@@ -14,7 +14,7 @@ I wanted a simple GUI to start Weston compositor with custom resolution.
 
 ## Screenshot
 
-![App](app.png)
+![App](App.png)
 
 ## Build
 
