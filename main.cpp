@@ -67,7 +67,7 @@ void startweston(int W,int H){  //folyamatok külön indítáas
          }
 }
 
-void screen(Gtk::Label* labelWidth, Gtk::Label* labelHeight, Gtk::Button* button, Gtk::Label* errors ){  //label hez hivatkozik a paraméter
+void screen(Gtk::Label* labelWidth, Gtk::Label* labelHeight, Gtk::Button* button, Gtk::Label* errors, Gtk::Scale* Width0,Gtk::Scale* Height0 ){  //label hez hivatkozik a paraméter
     Display* display = XOpenDisplay(NULL);   // Kapcsolódás az X szerverhez
     if (!display) {
         if(errors){
@@ -81,6 +81,18 @@ void screen(Gtk::Label* labelWidth, Gtk::Label* labelHeight, Gtk::Button* button
     int height = DisplayHeight(display, screen);
     XCloseDisplay(display);   // Kapcsolat bezárása
 
+    if (Width0 && Height0)
+    {
+        Width0->set_range(0, width);
+        Width0->set_value(width);
+
+        Height0->set_range(0, height);
+        Height0->set_value(height);
+    }
+    width = static_cast<int>(Width0->get_value());
+    height = static_cast<int>(Height0->get_value());
+
+
     if(labelWidth){
         labelWidth->set_text(std::to_string(width));  //lekért méretet át adjuk a labelnek gtk ba
     }
@@ -88,17 +100,44 @@ void screen(Gtk::Label* labelWidth, Gtk::Label* labelHeight, Gtk::Button* button
     if(labelHeight){
         labelHeight->set_text(std::to_string(height));
     }
+
+    if (Width0 && labelWidth)            //csúszka haszálatához  szélesség
+    {
+        Width0->signal_value_changed().connect(
+            [Width0, labelWidth]()
+            {
+                int width = static_cast<int>(Width0->get_value());
+                labelWidth->set_text(std::to_string(width));
+            }
+            );
+    }
+
+    if (Height0 && labelHeight)    //csúszka magasság
+    {
+        Height0->signal_value_changed().connect(
+            [Height0, labelHeight]()
+            {
+                int height = static_cast<int>(Height0->get_value());
+                labelHeight->set_text(std::to_string(height));
+            }
+            );
+    }
+
     if (button) {
-            button->signal_clicked().connect(
-                [width, height, errors]() {               //capture list  külső változók átvétele labdákba
-                    if(waydroid_run() == false){         // ha nem fut elinditja (ha nem az eseményen belül vizsgáljuk mindig tru értéket kap)
-                        startweston(width, height);     //fügvény hívás eseményre kötve!!
-                    }
-                    else{
-                        errors->set_text("Restart program!");
-                    }
+        button->signal_clicked().connect(
+            [Width0, Height0, errors]() {               //capture list  külső változók átvétele labdákba
+
+                int WidthScreen = static_cast<int>(Width0->get_value());  //csúszkából jövő értékek
+                int heightScreen = static_cast<int>(Height0->get_value()); //csúszkából jövő értékek
+
+                if(waydroid_run() == false){               // ha nem fut elinditja (ha nem az eseményen belül vizsgáljuk mindig tru értéket kap)
+                    startweston(WidthScreen, heightScreen);  //fügvény hívás eseményre kötve!!
                 }
-                );
+                else{
+                    errors->set_text("Restart program!");
+                }
+            }
+            );
     }
 }
 
@@ -115,7 +154,11 @@ int main(int argc, char* argv[]){
     Gtk::Label* labelWidth = nullptr;  // ← JAVÍTVA
     Gtk::Label* labelHeight = nullptr;  // ← JAVÍTVA
     Gtk::Label* errors = nullptr;
+    Gtk::Scale* Width0 = nullptr;
+    Gtk::Scale* Height0 = nullptr;
 
+    builder->get_widget("heightScal", Height0);
+    builder->get_widget("widthScal", Width0);
     builder->get_widget("window1", window);
     builder->get_widget("popup", Infwindow);
      builder->get_widget("ApkOpen", ApkOpen); //ez a fájl tallozó azonosító házzá adása
@@ -125,7 +168,7 @@ int main(int argc, char* argv[]){
     builder->get_widget("width", labelWidth);  // gtk label cimke azonosító  "width"
     builder->get_widget("height", labelHeight);
     builder->get_widget("error", errors);
-    screen(labelWidth,labelHeight,button,errors);  //képernyő adatok
+    screen(labelWidth,labelHeight,button,errors,Width0,Height0);  //képernyő adatok
 
     if(waydroid_run() == true){
         system("waydroid session stop");
