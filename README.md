@@ -1,8 +1,7 @@
 # Compositor Runner
 
-Simple GTK3 application to start Weston compositor. Tested Linux Mint 22  Cinnamon 6.2.9. X11 
-App automatically launches waydroid and Weston compositor, adjusting the screen size.
-
+Simple GTK3 application to start Weston compositor.Tested on Linux Mint 22 (Cinnamon 6.2.9, X11).
+The app automatically launches Waydroid and the Weston compositor, and adjusts the screen size.
 ## Why I made this
 
 I wanted a simple GUI to start Weston compositor with custom resolution.
