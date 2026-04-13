@@ -4,7 +4,9 @@ Simple GTK3 application to start Weston compositor.Tested on Linux Mint 22 (Cinn
 The app automatically launches Waydroid and the Weston compositor, and adjusts the screen size.
 ## Why I made this
 
-I wanted a simple GUI to start Weston compositor with custom resolution.
+Waydroid setup can be inconvenient when you need to manually start Weston and configure resolution.
+
+This tool simplifies the process into a single click.
 
 ## Features
 
