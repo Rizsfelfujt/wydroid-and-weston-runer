@@ -1,3 +1,3 @@
 #!/bin/bash
-cd "/home/nebook/Application/compositor_runer"
+cd "/usr/bin/compositor_runer"
 ./program
